@@ -1,0 +1,13 @@
+<!-- quotes/templates/quotes/add_quote.html -->
+{% extends 'base.html' %}
+
+{% block title %}Додати Цитату - Quotes{% endblock %}
+
+{% block content %}
+  <h2>Додати Цитату</h2>
+  <form method="post" action="{% url 'quotes:add_quote' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Додати Цитату</button>
+  </form>
+{% endblock %}
