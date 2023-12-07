@@ -1,13 +1,38 @@
-<!-- quotes/templates/quotes/add_quote.html -->
-{% extends 'base.html' %}
+{% extends 'quotes/base.html' %}
 
 {% block title %}Додати Цитату - Quotes{% endblock %}
 
 {% block content %}
-  <h2>Додати Цитату</h2>
-  <form method="post" action="{% url 'quotes:add_quote' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Додати Цитату</button>
-  </form>
+  <div class="container mt-4">
+    <h2>Додати Цитату</h2>
+    <form method="post" action="{% url 'quotes:add_quote' %}">
+      {% csrf_token %}
+      <div class="form-group">
+        {{ form.quote.label_tag }}
+        {{ form.quote }}
+      </div>
+
+      <div class="form-group">
+        {{ form.author.label_tag }}
+        {{ form.author }}
+        {% if form.author.errors %}
+          <small class="text-danger">{{ form.author.errors }}</small>
+        {% endif %}
+        <p class="text-muted">Якщо автора немає у списку, спочатку <a href="{% url 'quotes:add_author' %}">додайте автора</a>.</p>
+      </div>
+
+      <div class="form-group">
+        {{ form.tags.label_tag }}
+        {{ form.tags }}
+      </div>
+
+      <div class="form-group">
+        <label for="new_tags">Додати нові теги:</label>
+        <input type="text" class="form-control" id="new_tags" name="new_tags" placeholder="Введіть нові теги, розділяючи їх комами">
+        <small class="form-text text-muted">Додайте нові теги, розділяючи їх комами.</small>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Додати Цитату</button>
+    </form>
+  </div>
 {% endblock %}

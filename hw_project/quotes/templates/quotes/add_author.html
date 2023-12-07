@@ -1,13 +1,34 @@
-<!-- quotes/templates/quotes/add_author.html -->
-{% extends 'base.html' %}
+{% extends 'quotes/base.html' %}
 
 {% block title %}Додати Автора - Quotes{% endblock %}
 
 {% block content %}
-  <h2>Додати Автора</h2>
-  <form method="post" action="{% url 'quotes:add_author' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Додати Автора</button>
-  </form>
+  <div class="container mt-4">
+    <h2>Додати Автора</h2>
+    <form method="post" action="{% url 'quotes:add_author' %}">
+      {% csrf_token %}
+
+      <div class="form-group mb-4">
+        {{ form.fullname.label_tag }}
+        {{ form.fullname }}
+      </div>
+
+      <div class="form-group mb-4">
+        {{ form.born_date.label_tag }}
+        {{ form.born_date }}
+      </div>
+
+      <div class="form-group mb-4">
+        {{ form.born_location.label_tag }}
+        {{ form.born_location }}
+      </div>
+
+      <div class="form-group mb-4">
+        {{ form.description.label_tag }}
+        {{ form.description }}
+      </div>
+
+      <button type="submit" class="btn btn-primary">Додати Автора</button>
+    </form>
+  </div>
 {% endblock %}
