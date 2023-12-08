@@ -1,0 +1,45 @@
+/* users/style.css */
+
+/* Стилі для заголовка сторінки */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #3677E8;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Стилі для форм реєстрації та входу */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form h2 {
+    text-align: center;
+}
+
+form button {
+    display: block;
+    margin: 15px auto;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Стилі для заголовків та інших елементів на сторінці реєстрації і входу */
+h2 {
+    text-align: center;
+}

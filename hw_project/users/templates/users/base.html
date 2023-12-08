@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Quotes{% endblock %}</title>
-    <!-- стилі або посилання на CDN  -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'users/style.css' %}">
 </head>
 <body>
 <div class="container">
     <div class="row header-box pt-3 mb-3">
-    <header>
-        <div class="col-md-8">
-            <h1><a href="/" style="text-decoration: none">Quotes</a></h1>
-        </div>
-        <nav>
-            <ul>
-                {% if block.super %}
-                    <li><a href="{% url 'users:register' %}">Реєстрація</a></li>
-                    <li><a href="{% url 'users:login' %}">Вхід</a></li>
-                {% endif %}
-                <!-- Інші посилання -->
-            </ul>
-        </nav>
-    </header>
+        <header>
+            <div class="col-md-8">
+                <h1><a href="/" style="text-decoration: none">Quotes</a></h1>
+            </div>
+            <nav>
+                <ul>
+                    {% if block.super %}
+                        <li><a href="{% url 'users:register' %}">Реєстрація</a></li>
+                        <li><a href="{% url 'users:login' %}">Вхід</a></li>
+                    {% endif %}
+                    <!-- Інші посилання -->
+                </ul>
+            </nav>
+        </header>
     </div>
 
     <main>
