@@ -1,16 +1,44 @@
 # users/forms.py
+
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
+
+from .models import Profile
 
 
-class CustomUserCreationForm(UserCreationForm):
+class RegisterForm(UserCreationForm):
+    username = forms.CharField(max_length=100,
+                               required=True,
+                               widget=forms.TextInput())
+
+    email = forms.CharField(max_length=100,
+                            required=True,
+                            widget=forms.TextInput())
+
+    password1 = forms.CharField(max_length=50,
+                                required=True,
+                                widget=forms.PasswordInput())
+
+    password2 = forms.CharField(max_length=50,
+                                required=True,
+                                widget=forms.PasswordInput())
+
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2']
 
 
-class AddAuthorForm(forms.Form):
-    name = forms.CharField(label='Author Name')
+class LoginForm(AuthenticationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password']
 
+
+class ProfileForm(forms.ModelForm):
+    avatar = forms.ImageField(widget=forms.FileInput())
+
+    class Meta:
+        model = Profile
+        fields = ['avatar']
 

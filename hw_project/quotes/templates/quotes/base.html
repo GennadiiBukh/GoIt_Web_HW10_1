@@ -8,7 +8,7 @@
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     {% load static %}
     <link rel="stylesheet" href="{% static 'quotes/style.css' %}">
-    <title>Homework</title>
+    <title>Quotes</title>
 </head>
 <body>
 <div class="container">
@@ -23,7 +23,7 @@
                 {% if user.is_authenticated %}
                     <a href="{% url 'users:logout' %}" class="btn btn-primary">Logout</a>
                 {% else %}
-                    <a href="{% url 'users:register' %}" class="btn btn-primary">SignUp</a>
+                    <a href="{% url 'users:signup' %}" class="btn btn-primary">SignUp</a>
                     <a href="{% url 'users:login' %}" class="btn btn-primary">Login</a>
                 {% endif %}
             </p>
